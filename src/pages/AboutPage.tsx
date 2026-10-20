@@ -1,0 +1,25 @@
+import { ArrowRight, HeartHandshake, MapPin, ShieldCheck, Snowflake, ShoppingBasket, MessageCircle, Store } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export const AboutPage = () => (
+  <div className="bg-[#f6f9ff]">
+    <section className="relative isolate overflow-hidden bg-[#082869] py-16 text-white sm:py-24">
+      {/* Full-opacity image — right half will show through clearly */}
+      <img
+        src="/images/hero_cutting_board.jpg"
+        alt="A selection of cuts from the butcher's counter"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+      />
+      {/* Gradient: solid navy left → transparent right (clears at ~75%) */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061b50] from-[25%] via-[#061b50]/85 via-[50%] to-transparent to-[78%]" />
+      <div className="page-shell">
+        <p className="eyebrow !text-[#ed1c2e]">Good food brings us together</p>
+        <h1 className="font-display mt-4 max-w-3xl text-5xl leading-[1.02] sm:text-7xl">A neighbourhood butcher for the everyday table.</h1>
+        <p className="mt-5 max-w-xl text-base leading-7 text-white/75">Budget Meat Shop brings fresh cuts, everyday value and a friendly local service to Bulawayo.</p>
+      </div>
+    </section>
+    <section className="page-shell grid items-center gap-9 py-12 sm:py-16 lg:grid-cols-[1fr_.9fr] lg:gap-16"><div><p className="eyebrow mb-3">From the counter</p><h2 className="section-heading">Good cuts. Fair prices. Familiar faces.</h2><div className="mt-5 space-y-4 text-sm leading-7 text-[#687789]"><p>We're here for the meals that bring people around the table. Whether you're picking up a few dinner staples or getting ready for a family braai, our team can help you find the right cuts for the occasion.</p><p>Shop online, add a note for how you'd like your order prepared, or visit one of our Bulawayo branches to speak with the team in person.</p></div><Link to="/branches" className="btn-primary mt-7">Find a branch <MapPin className="h-4 w-4" /></Link></div><div className="relative"><div className="absolute -bottom-3 -left-3 h-full w-full rounded-md border border-[#ed1c2e]" /><img src="/images/category_beef.jpg" alt="Fresh cuts selected for the counter" loading="lazy" className="relative aspect-[1.15/1] w-full rounded-md object-cover" /></div></section>
+    <section className="bg-white py-12 sm:py-16"><div className="page-shell grid gap-4 sm:grid-cols-3">{[{ icon: HeartHandshake, title: 'A personal touch', detail: 'A friendly team to help you choose cuts for the meal you have in mind.' }, { icon: ShieldCheck, title: 'Prepared with care', detail: 'Every order is handled thoughtfully by the people behind the counter.' }, { icon: Snowflake, title: 'Fresh to your door', detail: 'Choose local delivery or collect your order from a nearby branch.' }].map(({ icon: Icon, title, detail }) => <article key={title} className="rounded-md border border-[#e7e9ec] p-5 sm:p-6"><div className="mb-4 flex h-10 w-10 items-center justify-center rounded bg-[#edf2fb] text-[#082869]"><Icon className="h-5 w-5" /></div><h2 className="font-display text-2xl text-[#082869]">{title}</h2><p className="mt-2 text-sm leading-6 text-[#758295]">{detail}</p></article>)}</div></section>
+    <section className="page-shell py-12 sm:py-16" aria-labelledby="about-order-title"><div className="mb-7 max-w-2xl"><p className="eyebrow mb-2">Here when you need us</p><h2 id="about-order-title" className="section-heading">Good service, from first choice to collection.</h2><p className="mt-2 text-sm leading-6 text-[#687789]">Our online counter is here to make everyday shopping easier, while your local team is always close by for a conversation.</p></div><div className="grid gap-4 md:grid-cols-3">{[{ icon: ShoppingBasket, title: 'Choose what you need', detail: 'Browse fresh cuts, everyday favourites and family bundles online.' }, { icon: MessageCircle, title: 'Tell us your preference', detail: 'Add a butcher\'s note or get in touch if you need help choosing.' }, { icon: Store, title: 'Meet us at your branch', detail: 'Collect your order or visit the counter at a Bulawayo branch.' }].map(({ icon: Icon, title, detail }, index) => <article key={title} className="relative rounded-2xl border border-[#e4eaf4] bg-white p-5 sm:p-6"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#082869] text-white"><Icon className="h-5 w-5" /></span><span className="absolute right-5 top-5 font-sans text-3xl font-black text-[#e8eef8]">0{index + 1}</span><h3 className="mt-4 text-sm font-extrabold text-[#082869]">{title}</h3><p className="mt-2 text-sm leading-6 text-[#687789]">{detail}</p></article>)}</div><div className="mt-6 flex flex-wrap gap-3"><Link to="/shop" className="btn-primary">Shop the counter <ArrowRight className="h-4 w-4" /></Link><Link to="/blog" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#082869] px-5 text-xs font-extrabold text-[#082869] hover:bg-[#082869] hover:text-white">Meal ideas &amp; tips <ArrowRight className="h-4 w-4" /></Link></div></section>
+  </div>
+);
